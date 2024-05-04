@@ -1,0 +1,1 @@
+ffmpeg -re -rtbufsize 2105M -f decklink -i "DeckLink Mini Recorder" -pix_fmt yuv420p -r 23.976 -vcodec libx264 -vf "scale=1280:720" -b:v 3000k -preset ultrafast -profile:v baseline -keyint_min 24 -g 48 -x264opts no-scenecut -acodec mp3 -b:a 96k -af "aresample=async=1:min_hard_comp=0.100000:first_pts=0" -map_metadata -1 -f flv "rtmp://IP:PUERTO/RUTA/NOMBRE"
